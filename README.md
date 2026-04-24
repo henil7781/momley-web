@@ -1,73 +1,44 @@
-# React + TypeScript + Vite
+# Momley AGS Life Sciences
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A premium, state-of-the-art web application for **Momley AGS Life Sciences**, specializing in precision medicine for maternal and neonatal care.
 
-Currently, two official plugins are available:
+## ✨ Project Highlights
+- **Premium Design Aesthetics**: Clean, modern medical-themed UI with glassmorphism and fluid animations.
+- **Precision Care Modules**: Specialized sections for Pediatric care, Gynecology, and Neonatal health.
+- **Modern Tech Stack**: Built with React 19, Vite, Tailwind CSS 4, Framer Motion, and Lucide React.
+- **Responsive Architecture**: Fully optimized for mobile, tablet, and desktop experiences.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Built With
+- **Frontend**: [React 19](https://react.dev/)
+- **Build Tool**: [Vite 8](https://vitejs.dev/)
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **Icons**: [Lucide React](https://lucide.dev/)
 
-## React Compiler
+## 🛠️ Development Setup
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Prerequisites
+- Node.js (Latest LTS version recommended)
+- npm or yarn
 
-## Expanding the ESLint configuration
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/henil7781/momley-web.git
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📂 Project Structure
+- `src/components`: High-end UI components (Hero, Navbar, Footer, Section modules).
+- `src/pages`: Main application routes (Home, Products, Our Story, etc.).
+- `src/assets`: Image and branding assets.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+© 2026 Momley AGS Life Sciences. All rights reserved.
