@@ -81,15 +81,36 @@ const HeroCarousel = () => {
       >
         <div className="flex h-full w-full">
           {SLIDES.map((slide, index) => (
-            <div key={slide.id} className="relative flex-[0_0_100%] h-full w-full min-w-0">
+            <div key={slide.id} className="relative flex-[0_0_100%] h-full w-full min-w-0 overflow-hidden">
               <motion.img
-                initial={{ scale: 1.1, opacity: 0 }}
-                animate={selectedIndex === index ? { scale: 1, opacity: 1 } : { scale: 1.1, opacity: 0 }}
-                transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+                initial={{ scale: 1.25 }}
+                animate={selectedIndex === index ? { 
+                  scale: 1,
+                  opacity: 1,
+                  transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1] }
+                } : { 
+                  scale: 1.25,
+                  opacity: 0,
+                  transition: { duration: 0.8 }
+                }}
                 src={slide.image}
                 alt={slide.title}
                 className="h-full w-full object-cover"
               />
+              
+              {/* Ken Burns Subtle Zoom Out during dwell */}
+              <AnimatePresence>
+                {selectedIndex === index && (
+                  <motion.div
+                    initial={{ scale: 1 }}
+                    animate={{ scale: 1.1 }}
+                    transition={{ duration: 7, ease: "linear" }}
+                    className="absolute inset-0 z-0 pointer-events-none"
+                  >
+                     <img src={slide.image} className="h-full w-full object-cover opacity-0" alt="" />
+                  </motion.div>
+                )}
+              </AnimatePresence>
               {/* Mobile Scrim: Stronger at bottom for text contrast */}
               <div className="absolute inset-0 lg:hidden bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
               {/* Desktop Scrim: Soft left fade to blend with white panel */}
@@ -114,7 +135,7 @@ const HeroCarousel = () => {
         {/* Desktop Aesthetic Glow */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-brand-pink/[0.04] blur-[100px] rounded-full pointer-events-none hidden lg:block" />
 
-        <div className="w-full px-6 pb-20 py-20 sm:px-12 sm:pb-24 lg:py-20 lg:px-20 xl:px-28">
+        <div className="w-full px-6 pb-20 py-20 sm:px-12 sm:pb-24 lg:py-20 lg:px-24 xl:px-32 max-w-7xl mx-auto">
           <AnimatePresence mode="wait">
             {SLIDES.map((slide, index) =>
               selectedIndex === index ? (
@@ -146,9 +167,23 @@ const HeroCarousel = () => {
 
                   {/* Actions */}
                   <div className="flex items-center gap-3 pt-2">
-                    <button className="bg-brand-pink text-white px-6 py-3 lg:px-10 lg:py-5 rounded-2xl font-bold text-sm lg:text-lg shadow-xl shadow-pink-500/20 hover:scale-105 active:scale-95 transition-all flex items-center gap-2">
-                      Explore
-                      <ArrowRight className="w-4 h-4" />
+                    <button className="relative group/btn overflow-hidden bg-brand-pink text-white px-6 py-3 lg:px-10 lg:py-5 rounded-2xl font-bold text-sm lg:text-lg shadow-xl shadow-pink-500/20 hover:scale-105 active:scale-95 transition-all flex items-center gap-2">
+                      <span className="relative z-10 flex items-center gap-2">
+                        Explore
+                        <ArrowRight className="w-4 h-4" />
+                      </span>
+                      {/* Shimmer Overlay */}
+                      <motion.div 
+                        initial={{ x: '-100%' }}
+                        animate={{ x: '200%' }}
+                        transition={{ 
+                          repeat: Infinity, 
+                          duration: 1.5, 
+                          repeatDelay: 3.5,
+                          ease: "easeInOut"
+                        }}
+                        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12 z-0"
+                      />
                     </button>
                     <button className="px-6 py-3 lg:px-10 lg:py-5 rounded-2xl font-bold text-sm lg:text-lg text-white lg:text-slate-900 border border-white/30 lg:border-slate-200 hover:bg-white/10 lg:hover:bg-slate-50 transition-all">
                       Learn More

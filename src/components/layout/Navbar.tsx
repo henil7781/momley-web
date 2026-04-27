@@ -26,18 +26,18 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-3 sm:px-6 py-2 sm:py-4 ${
-        scrolled ? 'pt-2' : 'pt-3 sm:pt-6'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 px-4 sm:px-8 py-3 sm:py-5 ${
+        scrolled ? 'pt-2' : 'pt-5 sm:pt-8'
       }`}
     >
       <div
-        className={`mx-auto max-w-7xl transition-all duration-500 rounded-2xl sm:rounded-3xl ${
+        className={`mx-auto max-w-7xl transition-all duration-700 rounded-3xl ${
           scrolled
-            ? 'bg-white/70 backdrop-blur-xl shadow-lg border border-white/20'
-            : 'bg-white/10 backdrop-blur-md border border-white/10'
+            ? 'bg-white/80 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-white/20'
+            : 'bg-transparent border border-transparent'
         }`}
       >
-        <div className="px-6 h-20 flex items-center justify-between">
+        <div className="px-8 h-20 flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <img
@@ -64,10 +64,12 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 rounded-xl bg-white/10 text-white"
+            className={`md:hidden p-2 rounded-xl transition-colors ${
+              scrolled || location.pathname !== '/' ? 'bg-slate-50 text-slate-900' : 'bg-white/10 text-white'
+            }`}
             onClick={() => setIsOpen(!isOpen)}
           >
-            {isOpen ? <X /> : <Menu className={scrolled || location.pathname !== '/' ? 'text-brand-pink' : 'text-white'} />}
+            {isOpen ? <X className="text-brand-pink" /> : <Menu />}
           </button>
         </div>
 

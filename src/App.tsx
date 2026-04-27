@@ -1,15 +1,14 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
+import MainLayout from './layouts/MainLayout';
 import Home from './pages/Home';
-import { Products, Pedia, Gync, OurStory, Contact } from './pages/Placeholders';
-import Footer from './components/Footer';
+import { Gync, OurStory, Contact } from './pages/Placeholders';
+import Pedia from './pages/Pedia';
+import Products from './pages/Products';
 
 function App() {
   return (
     <Router>
-      <main className="relative min-h-screen bg-white">
-        <Navbar />
+      <MainLayout>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
@@ -18,8 +17,7 @@ function App() {
           <Route path="/our-story" element={<OurStory />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
-        <Footer/>
-      </main>
+      </MainLayout>
     </Router>
   );
 }

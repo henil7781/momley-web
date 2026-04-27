@@ -10,7 +10,6 @@ const PagePlaceholder = ({ title }: { title: string }) => (
   </div>
 );
 
-export const Products = () => <PagePlaceholder title="Products" />;
 export const Pedia = () => <PagePlaceholder title="Pedia" />;
 export const Gync = () => <PagePlaceholder title="Gync" />;
 export const OurStory = () => <PagePlaceholder title="Our Story" />;

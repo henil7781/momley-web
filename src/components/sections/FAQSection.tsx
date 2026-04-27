@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Plus, Minus, HelpCircle } from 'lucide-react';
+import { HelpCircle } from 'lucide-react';
+import FAQItem from '../ui/FAQItem';
+import SectionHeader from '../ui/SectionHeader';
 
 const FAQS = [
   {
@@ -25,42 +26,6 @@ const FAQS = [
   }
 ];
 
-const FAQItem = ({ question, answer, isOpen, toggle }: { question: string, answer: string, isOpen: boolean, toggle: () => void }) => {
-  return (
-    <div className={`group border-b border-slate-100 last:border-0 transition-all duration-500 ${isOpen ? 'bg-slate-50/50' : 'bg-transparent'}`}>
-      <button
-        onClick={toggle}
-        className="w-full py-8 px-6 md:px-10 flex items-center justify-between text-left group"
-      >
-        <span className={`text-xl md:text-2xl font-bold tracking-tight transition-colors duration-300 ${isOpen ? 'text-brand-pink' : 'text-slate-900 group-hover:text-slate-600'}`}>
-          {question}
-        </span>
-        <div className={`p-2 rounded-full transition-all duration-500 ${isOpen ? 'bg-brand-pink text-white rotate-180' : 'bg-slate-100 text-slate-400 group-hover:bg-slate-200'}`}>
-          {isOpen ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
-        </div>
-      </button>
-      
-      <AnimatePresence initial={false}>
-        {isOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="overflow-hidden"
-          >
-            <div className="px-6 md:px-10 pb-8 pt-0">
-              <p className="text-slate-500 text-lg leading-relaxed max-w-4xl font-medium border-l-2 border-brand-pink/20 pl-6">
-                {answer}
-              </p>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-};
-
 const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
@@ -71,20 +36,13 @@ const FAQSection = () => {
       <div className="absolute bottom-0 left-0 w-[30%] h-[30%] bg-blue-500/[0.03] blur-[100px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
-          <div className="space-y-6">
-            <div className="flex items-center gap-3">
-              <HelpCircle className="w-5 h-5 text-brand-pink" />
-              <h2 className="text-brand-pink font-bold tracking-[0.25em] text-xs uppercase italic underline underline-offset-8">Information Portal</h2>
-            </div>
-            <h3 className="text-5xl md:text-7xl font-black text-slate-900 tracking-tighter leading-[0.9]">
-              Curated <span className="text-slate-300">Insights.</span>
-            </h3>
-          </div>
-          <p className="max-w-xs text-slate-400 font-medium leading-relaxed">
-            Finding answers to your most pressing medical and partnership questions.
-          </p>
-        </div>
+        <SectionHeader 
+          icon={HelpCircle}
+          sublabel="Information Portal"
+          title={<>Curated <span className="text-slate-400">Insights.</span></>}
+          description="Finding answers to your most pressing medical and partnership questions."
+          accentColor="text-brand-pink"
+        />
 
         <div className="bg-white border border-slate-100 rounded-[3rem] overflow-hidden shadow-[0_40px_80px_-20px_rgba(0,0,0,0.03)]">
           {FAQS.map((faq, index) => (
