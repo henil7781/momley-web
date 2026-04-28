@@ -31,13 +31,12 @@ on:
     branches: [ "main" ]
 
 env:
-  AWS_REGION: us-east-1                # set this to your preferred AWS region, e.g. us-west-1
-  ECR_REPOSITORY: MY_ECR_REPOSITORY           # set this to your Amazon ECR repository name
-  ECS_SERVICE: MY_ECS_SERVICE                 # set this to your Amazon ECS service name
-  ECS_CLUSTER: MY_ECS_CLUSTER                 # set this to your Amazon ECS cluster name
-  ECS_TASK_DEFINITION: MY_ECS_TASK_DEFINITION # set this to the path to your Amazon ECS task definition
-                                               # file, e.g. .aws/task-definition.json
-  CONTAINER_NAME: MY_CONTAINER_NAME           # set this to the name of the container in the
+  AWS_REGION: us-east-1                          # Replace with your actual AWS region (e.g., us-east-1, us-west-2, eu-west-1)
+  ECR_REPOSITORY: your-ecr-repo-name             # Replace with your ECR repository name
+  ECS_SERVICE: your-ecs-service-name             # Replace with your ECS service name
+  ECS_CLUSTER: your-ecs-cluster-name             # Replace with your ECS cluster name
+  ECS_TASK_DEFINITION: .aws/task-definition.json # Replace with path to your task definition file
+  CONTAINER_NAME: your-container-name            # Replace with container name from task definition          # set this to the name of the container in the
                                                # containerDefinitions section of your task definition
 
 permissions:
