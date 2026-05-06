@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Plus, Beaker, Star } from 'lucide-react';
+import { Plus, Beaker } from 'lucide-react';
 import type { Product } from '../../constants/products';
 
 interface ProductCardProps extends Product {
@@ -92,10 +92,6 @@ const ProductCard: React.FC<ProductCardProps> = ({
             <h4 className="text-3xl font-black text-slate-900 tracking-tighter group-hover:text-brand-pink transition-colors">
               {name}
             </h4>
-            <div className="flex items-center gap-1.5 bg-slate-50 px-3 py-1 rounded-full border border-slate-100">
-               <Star className="w-3 h-3 text-brand-pink fill-brand-pink" />
-               <span className="text-[10px] font-black text-slate-900">4.9</span>
-            </div>
           </div>
 
           {/* Molecule-First Capsule Branding */}

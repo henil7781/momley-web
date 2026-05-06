@@ -29,29 +29,29 @@ const PediaAbout: React.FC = () => {
   ];
 
   return (
-    <section className="relative py-24 px-6 sm:px-12 lg:px-24 bg-white overflow-hidden">
+    <section className="relative py-24 lg:py-0 min-h-screen flex items-center px-6 sm:px-12 lg:px-24 bg-white overflow-hidden">
       {/* Background Glows (Matching Home Design) */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-pink/[0.04] blur-[150px] rounded-full pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-500/[0.04] blur-[150px] rounded-full pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-7xl mx-auto w-full relative z-10 py-8 lg:py-12">
 
-        <SectionHeader 
-            icon={Microscope}
-            sublabel="The First 1,000 Days"
-            title={<>Neonatal <br /> <span className="text-slate-400">Engineering.</span></>}
-            accentColor="text-brand-pink"
+        <SectionHeader
+          icon={Microscope}
+          sublabel="The First 1,000 Days"
+          title={<>Pediatric  <span className="text-slate-400">Engineering.</span></>}
+          accentColor="text-brand-pink"
         />
 
         {/* Bento Grid Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
 
           {/* LEFT: High-End Clinical Visual (5 Columns) */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="lg:col-span-5 relative group h-[450px] lg:h-auto rounded-[3.5rem] overflow-hidden shadow-2xl shadow-slate-200"
+            className="lg:col-span-5 relative group min-h-[400px] lg:h-full rounded-[3rem] overflow-hidden shadow-2xl shadow-slate-200"
           >
             <img
               src="assets/pedia/pedia_about.png"
@@ -70,19 +70,19 @@ const PediaAbout: React.FC = () => {
           </motion.div>
 
           {/* RIGHT: Intelligence & Core Values (7 Columns) */}
-          <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6">
 
             {/* Core Narrative Card (Full Width in Grid) */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="md:col-span-2 p-12 bg-slate-50 border border-slate-100 rounded-[3.5rem] relative overflow-hidden"
+              className="md:col-span-2 p-8 lg:p-10 bg-slate-50 border border-slate-100 rounded-[3rem] relative overflow-hidden"
             >
-              <div className="absolute top-0 right-0 p-12 opacity-[0.03] rotate-12">
+              <div className="absolute top-0 right-0 p-8 lg:p-10 opacity-[0.03] rotate-12">
                 <Beaker className="w-56 h-56" />
               </div>
-              <h3 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tighter mb-5">Precision over Protocol</h3>
+              <h3 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tighter mb-4">Precision over Protocol</h3>
               <p className="text-slate-500 font-medium leading-relaxed italic border-l-4 border-brand-pink pl-8">
                 An infant's metabolism is not just smaller—it's different. We engineer every dose to ensure it matches the fragile metabolic pathway of a newborn, ensuring zero compromise on safety.
               </p>
@@ -96,9 +96,9 @@ const PediaAbout: React.FC = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="p-10 bg-white border border-slate-100 rounded-[3rem] hover:shadow-2xl hover:shadow-slate-200/50 transition-all group"
+                className="p-6 lg:p-8 bg-white border border-slate-100 rounded-[2.5rem] hover:shadow-2xl hover:shadow-slate-200/50 transition-all group"
               >
-                <div className={`${val.bg} ${val.color} w-14 h-14 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform shadow-sm`}>
+                <div className={`${val.bg} ${val.color} w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-sm`}>
                   <val.icon className="w-7 h-7" />
                 </div>
                 <h4 className="text-xl font-black text-slate-900 tracking-tight mb-3">{val.title}</h4>
@@ -111,7 +111,7 @@ const PediaAbout: React.FC = () => {
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="p-10 bg-brand-pink rounded-[3rem] flex flex-col justify-center items-center text-center space-y-5 shadow-xl shadow-pink-500/10"
+              className="p-6 lg:p-8 bg-brand-pink rounded-[2.5rem] flex flex-col justify-center items-center text-center space-y-4 shadow-xl shadow-pink-500/10"
             >
               <ShieldCheck className="text-white w-12 h-12" />
               <div className="space-y-1">

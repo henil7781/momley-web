@@ -1,7 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import MainLayout from './layouts/MainLayout';
 import Home from './pages/Home';
-import { Gync, OurStory, Contact } from './pages/Placeholders';
+import Contact from './pages/Contact';
+import OurStory from './pages/OurStory';
+import Gync from './pages/Gync';
 import Pedia from './pages/Pedia';
 import Products from './pages/Products';
 
