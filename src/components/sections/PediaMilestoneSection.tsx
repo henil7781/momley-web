@@ -70,7 +70,7 @@ const MilestoneCard = ({ step, index }: { step: any, index: number }) => {
         initial={{ opacity: 0, x: isEven ? -100 : 100 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, margin: "-10%" }}
-        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] as any }}
         className={`w-full lg:w-1/2 ${isEven ? 'lg:pr-32 lg:text-right' : 'lg:pl-32 lg:text-left'} text-center lg:text-inherit`}
       >
         <div className="space-y-6">
@@ -106,7 +106,7 @@ const MilestoneCard = ({ step, index }: { step: any, index: number }) => {
         initial={{ opacity: 0, scale: 0.8 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true, margin: "-10%" }}
-        transition={{ duration: 1, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 1, delay: 0.1, ease: [0.22, 1, 0.36, 1] as any }}
         className={`w-full lg:w-1/2 flex justify-center ${isEven ? 'lg:pl-32' : 'lg:pr-32'} mt-12 lg:mt-0`}
       >
         <div className="relative w-full max-w-sm group">
