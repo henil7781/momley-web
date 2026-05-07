@@ -86,17 +86,20 @@ const Contact: React.FC = () => {
 
                     {/* Contact Information Cards */}
                     <div className="lg:col-span-5 flex flex-col gap-6">
-                        <motion.div
+                        <motion.a
+                            href="https://maps.app.goo.gl/HmiYRpmKkgNW7oe56"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: 0.1 }}
-                            className="bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-[0_20px_50px_rgba(0,0,0,0.03)] flex gap-6 group hover:border-brand-pink/20 transition-all"
+                            className="bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-[0_20px_50px_rgba(0,0,0,0.03)] flex gap-6 group hover:border-brand-pink/20 transition-all cursor-pointer"
                         >
                             <div className="w-14 h-14 bg-slate-50 text-slate-400 group-hover:bg-brand-pink group-hover:text-white rounded-2xl flex items-center justify-center shrink-0 transition-all">
                                 <MapPin className="w-6 h-6" />
                             </div>
                             <div>
-                                <h3 className="text-lg font-black text-slate-900 mb-2">Global Headquarters</h3>
+                                <h3 className="text-lg font-black text-slate-900 mb-2 group-hover:text-brand-pink transition-colors">Global Headquarters</h3>
                                 <p className="text-slate-500 font-medium leading-relaxed text-sm">
                                     131-132, Sun Gravitas,<br />
                                     Opp. Ganesh Gruh Udhyog,<br /> Near Shyamal Cross Road,<br />
@@ -104,7 +107,7 @@ const Contact: React.FC = () => {
                                     <br /> 380015
                                 </p>
                             </div>
-                        </motion.div>
+                        </motion.a>
 
                         <motion.div
                             initial={{ opacity: 0, x: -20 }}

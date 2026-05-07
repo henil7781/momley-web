@@ -6,8 +6,9 @@ import SectionHeader from '../ui/SectionHeader';
 import { Pill } from 'lucide-react';
 
 const ProductSection = () => {
-  // Show only first 4 flagship products on home page
-  const flagshipProducts = PRODUCTS.slice(0, 4);
+  // Specifically requested flagship products for home page
+  const flagshipIds = ['lipofez', 'dualflora-suspension', 'momxaa-syrup', 'kidzine-syrup'];
+  const flagshipProducts = PRODUCTS.filter(p => flagshipIds.includes(p.id));
 
   return (
     <section className="relative min-h-screen w-full bg-white flex flex-col items-center justify-center py-20 sm:py-24 px-6 sm:px-12 lg:px-24">

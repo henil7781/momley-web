@@ -7,8 +7,9 @@ import SectionHeader from '../ui/SectionHeader';
 import BrandButton from '../ui/BrandButton';
 
 const GyncProductSection: React.FC = () => {
-    // Filter for Maternal products
-    const gyncProducts = PRODUCTS.filter(p => p.category === 'Maternal').slice(0, 4);
+    // Specifically requested products for Gynecology page showcase
+    const gyncIds = ['labetancy-200', 'momleylact', 'momxaa-syrup', 'dualflora-gg'];
+    const gyncProducts = PRODUCTS.filter(p => gyncIds.includes(p.id));
 
     return (
         <section className="relative py-24 px-6 sm:px-12 lg:px-24 bg-white overflow-hidden">

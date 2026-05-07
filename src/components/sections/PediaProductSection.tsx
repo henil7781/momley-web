@@ -7,8 +7,9 @@ import SectionHeader from '../ui/SectionHeader';
 import BrandButton from '../ui/BrandButton';
 
 const PediaProductSection: React.FC = () => {
-    // Filter for Pediatric and Neonatal products
-    const pediaProducts = PRODUCTS.filter(p => p.category === 'Pediatrics' || p.category === 'Neonatal').slice(0, 4);
+    // Specifically requested products for Pediatric page showcase
+    const pediaIds = ['kidk1', 'lipofez', 'dualflora-suspension', 'momleylact'];
+    const pediaProducts = PRODUCTS.filter(p => pediaIds.includes(p.id));
 
     return (
         <section className="relative py-24 px-6 sm:px-12 lg:px-24 bg-white overflow-hidden">
